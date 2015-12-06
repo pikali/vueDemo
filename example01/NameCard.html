@@ -1,0 +1,49 @@
+<script src="vue.js"></script>
+
+<div id = "inputName">
+	<input v-model="newName" v-on:keyup.enter="changeName">
+</div>
+
+<div id = "nameCard">
+	<div>FirstName: {{ firstName }}</div>
+	<div>LastName: {{ lastName }}</div>
+	<div>FullName: {{ fullName }}</div>
+</div>
+
+<script>
+	var namecard = new Vue({
+		el: '#nameCard',
+		data: {
+			firstName: 'Foo',
+			lastName: 'Bar',
+		},
+		computed: {
+			fullName:{
+				get: function() {
+					return this.firstName + ' ' + this.lastName
+				},
+				set: function(newValue) {
+					var names = newValue.split(' ')
+					this.firstName = names[0]
+					this.lastName = names[names.length - 1]
+				}
+			}
+		}
+	})
+
+	new Vue({
+		el: '#inputName',
+		data: {
+			newName: '' 
+		},
+		methods: {
+			changeName: function() {
+				var text = this.newName.trim()
+				if(text) {
+					namecard.fullName = text
+					this.newName = ''
+				}
+			}
+		}
+	})
+</script>

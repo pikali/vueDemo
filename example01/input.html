@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+	<script src="vue.js"></script>
+</head>
+<body>
+	<div id="demo">
+ 		<p>{{message}}</p>
+ 		<button v-on:click="reverseMessage">Reverse Message</button>
+	</div>
+</body>
+</html>
+
+<script>
+ 	var vm = new Vue({
+    	el: '#demo',
+    	data: {
+     		message: 'Hello World Vue.js!'
+    	},
+    	methods: {
+    		reverseMessage: function() {
+    			this.message = this.message.split(' ').reverse().join(' ')
+    		}
+    	}
+  	})
+</script>

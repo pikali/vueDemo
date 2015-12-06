@@ -1,0 +1,25 @@
+<script src="vue.js"></script>
+
+<div>
+	<ul id = "examplevif">
+		<template v-for = "item in items">
+			<li>
+				{{ parentMessage }} - {{ $index }} - {{ item.message }}
+			</li>
+			<li class="divider"></li>
+		</template>
+	</ul>
+</div>
+
+<script>
+	var example = new Vue({
+		el: '#examplevif',
+		data: {
+			parentMessage: 'Parent',
+			items: [
+				{message: 'Foo'},
+				{message: 'Bar'}
+			]
+		}
+	})
+</script>

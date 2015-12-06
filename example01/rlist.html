@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+	<script src="vue.js"></script>
+</head>
+<body>
+	<div id="demo">
+ 		<ul>
+ 			<li v-for="entry in entrys">
+ 				{{ entry.text }}
+ 			</li>
+ 		</ul>
+	</div>
+</body>
+</html>
+
+<script>
+ 	var vm = new Vue({
+    	el: '#demo',
+    	data: {
+     		entrys: [
+     			{text: 'Learn JavaScript'},
+     			{text: 'Learn Vue.js'},
+     			{text: 'Build SomeThing Awesome'}
+     		]
+    	}
+  	})
+</script>
